@@ -49,4 +49,70 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  const COOKIE_CONSENT_NAME = 'fastfixes_cookie_consent';
+  const COOKIE_CONSENT_VALUE = 'accepted';
+  const COOKIE_CONSENT_DAYS = 365;
+
+  function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+  }
+
+  function getCookie(name) {
+    return document.cookie.split('; ').reduce((acc, cookie) => {
+      const [key, value] = cookie.split('=');
+      return key === name ? decodeURIComponent(value) : acc;
+    }, '');
+  }
+
+  function hasCookieConsent() {
+    return getCookie(COOKIE_CONSENT_NAME) === COOKIE_CONSENT_VALUE;
+  }
+
+  function createCookieBanner() {
+    if (document.getElementById('cookie-consent')) return;
+    const banner = document.createElement('div');
+    banner.id = 'cookie-consent';
+    banner.className = 'cookie-consent';
+    banner.innerHTML = `
+      <div class="cookie-message">
+        <p>Acest site folosește cookie-uri pentru performanță și navigare îmbunătățită. Apasă „Acceptă” pentru a continua.</p>
+      </div>
+      <div class="cookie-actions">
+        <button id="cookie-accept" type="button" class="btn">Acceptă</button>
+      </div>
+    `;
+    document.body.appendChild(banner);
+
+    const acceptButton = document.getElementById('cookie-accept');
+    if (acceptButton) {
+      acceptButton.addEventListener('click', () => {
+        setCookie(COOKIE_CONSENT_NAME, COOKIE_CONSENT_VALUE, COOKIE_CONSENT_DAYS);
+        banner.classList.add('cookie-consent-hidden');
+      });
+    }
+  }
+
+  if (!hasCookieConsent()) {
+    createCookieBanner();
+  }
+
+  // Facebook share setup: set dynamic share URL and open in popup
+  function setupFacebookShare() {
+    const elems = document.querySelectorAll('.fb-share-float, .fb-share');
+    if (!elems || elems.length === 0) return;
+    const pageUrl = encodeURIComponent(window.location.href);
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+    elems.forEach(el => {
+      el.setAttribute('href', shareUrl);
+      el.setAttribute('target', '_blank');
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open(shareUrl, 'fbshare', 'width=600,height=500,noopener');
+      });
+    });
+  }
+
+  setupFacebookShare();
 });

@@ -197,6 +197,7 @@ const template = (service) => `<!DOCTYPE html>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 FastFixes Handyman. All rights reserved.</p>
+                <a href="#" class="fb-share" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f"></i> Share</a>
             </div>
         </div>
     </footer>

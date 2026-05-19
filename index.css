@@ -11,6 +11,47 @@
   --accent: #3B82F6; /* Blue contrast */
   --accent-secondary: #10B981; /* Emerald green */
   --accent-warm: #F97316; /* Warm orange */
+
+.cookie-consent {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 1100;
+  background: rgba(15, 23, 42, 0.96);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.cookie-consent-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+.cookie-message {
+  flex: 1 1 320px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.cookie-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 0 0 auto;
+}
+.cookie-actions .btn {
+  font-size: 0.95rem;
+  padding: 0.8rem 1.25rem;
+}
+
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --radius: 12px;
   --shadow: 0 24px 48px rgba(0, 0, 0, 0.32);
@@ -389,6 +430,23 @@ header.scrolled {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 0 15px 25px rgba(37, 211, 102, 0.5);
 }
+
+/* Facebook Share button in footer */
+.footer-bottom { display: flex; align-items: center; gap: 0.75rem; justify-content: center; }
+.footer-bottom .fb-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1877F2;
+  color: #fff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.footer-bottom .fb-share i { font-size: 1rem; }
+.footer-bottom .fb-share:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(24,119,242,0.2); }
 
 /* Service Detail Pages */
 .service-hero {
