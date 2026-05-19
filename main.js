@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>This site uses cookies for performance and improved navigation. Click "Accepta" to continue.</p>
       </div>
       <div class="cookie-actions">
-        <button id="cookie-accept" type="button" class="btn">Accepta</button>
+        <button id="cookie-accept" type="button" class="btn">Accept</button>
       </div>
     `;
     document.body.appendChild(banner);
