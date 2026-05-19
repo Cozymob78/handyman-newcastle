@@ -77,10 +77,10 @@ document.addEventListener('DOMContentLoaded', () => {
     banner.className = 'cookie-consent';
     banner.innerHTML = `
       <div class="cookie-message">
-        <p>This site uses cookies for performance and improved navigation. Click "Accept" to continue.</p>
+        <p>This site uses cookies for performance and improved navigation. Click "Accepta" to continue.</p>
       </div>
       <div class="cookie-actions">
-        <button id="cookie-accept" type="button" class="btn">Acceptă</button>
+        <button id="cookie-accept" type="button" class="btn">Accepta</button>
       </div>
     `;
     document.body.appendChild(banner);
