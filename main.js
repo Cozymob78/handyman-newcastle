@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     banner.className = 'cookie-consent';
     banner.innerHTML = `
       <div class="cookie-message">
-        <p>Acest site folosește cookie-uri pentru performanță și navigare îmbunătățită. Apasă „Acceptă” pentru a continua.</p>
+        <p>This site uses cookies for performance and improved navigation. Click "Accept" to continue.</p>
       </div>
       <div class="cookie-actions">
         <button id="cookie-accept" type="button" class="btn">Acceptă</button>
